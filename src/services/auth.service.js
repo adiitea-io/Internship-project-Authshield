@@ -1,24 +1,22 @@
-const bcrypt = require("bcrypt");
-const userService = require("./user.service");
+import bcrypt from "bcrypt";
+import { createUser, getUserByEmail } from "./user.service.js";
 
-const register = async (userData) => {     //receive data from client
+export const register = async (userData) => {
+    const { name, email, password } = userData;
     
-    const { name, email, password } = userData;    //fir yaha deconstruct it 
-    const existingUser = await userService.getUserByEmail(email);   //check if they alread exist 
-    
+    const existingUser = await getUserByEmail(email);
     if (existingUser) {
-        throw new Error("User already exists");
+        throw new Error("User with this email already exists");
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);   //hash the password
-    
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     const newUser = {
         name,
         email,
         password: hashedPassword
     }
 
-    const user = await userService.createUser(newUser); 
+    const user = await createUser(newUser);
     return user;
-    
-};
+}
