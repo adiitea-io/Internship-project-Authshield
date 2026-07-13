@@ -18,5 +18,10 @@ export const register= async (userData) => {
     }
 
     const user = await createUser(newUser);
-    return user;
+    return {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role
+    };
 }
