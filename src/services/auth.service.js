@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import { createUser, getUserByEmail } from "./user.service.js";
 
-export const register = async (userData) => {
+export const register= async (userData) => {
     const { name, email, password } = userData;
     
     const existingUser = await getUserByEmail(email);
