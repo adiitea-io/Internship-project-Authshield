@@ -18,16 +18,10 @@ The project serves as a reusable authentication foundation that can be integrate
 
 
 ##  Tech Stack
-
-### Backend
+###Backend
 - Node.js
 - Express.js
-
-### Database
-- MongoDB Atlas
-- Mongoose
-
-### Authentication
+- MongoDB/Mongoose
 - JSON Web Token (JWT)
 - bcrypt
 
