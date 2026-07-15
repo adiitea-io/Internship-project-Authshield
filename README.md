@@ -1,4 +1,4 @@
-# Internship-project-Authshield 🛡️
+# Internship-project-AuthShield 🛡️
 ## Introduction 
 AuthShield is a secure backend authentication system developed using Node.js, Express.js, and MongoDB. It provides essential user authentication features such as user registration, login using JWT authentication, protected routes, and retrieval of authenticated user information.
 
