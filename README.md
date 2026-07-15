@@ -151,3 +151,12 @@ http://localhost:3000
 
 To verify the server is running, open the above URL in your browser or send a request using Postman.
 Expected response `Welcome to AuthShield 🛡️`
+
+## Future Enhancements
+-Refresh Tokens
+-Email Verification
+-Forgot Password
+-Role-Based Authorization (RBAC)
+-Rate Limiting
+
+
