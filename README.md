@@ -17,13 +17,19 @@ AuthShield demonstrates industry-standard authentication practices by implementi
 The project serves as a reusable authentication foundation that can be integrated into larger applications.
 
 
-## Tech Stack
-Node.js 
-Express.js
-MongoDB 
-Mongoose
-JSON Web Token (JWT)
-bcrypt
+##  Tech Stack
+
+### Backend
+- Node.js
+- Express.js
+
+### Database
+- MongoDB Atlas
+- Mongoose
+
+### Authentication
+- JSON Web Token (JWT)
+- bcrypt
 
 ### API Testing
 - Postman
