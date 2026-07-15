@@ -36,39 +36,42 @@ The project serves as a reusable authentication foundation that can be integrate
 ## Project Structure
 The project follows a layered architecture to separate routing, business logic, middleware, and database operations, making the code modular, maintainable, and scalable.
 
-AuthShield/
-│
-├── src/
-│   ├── config/
-│   ├── controllers/
+```text
+AuthShield
+├── src
+│   ├── config
+│   ├── controllers
 │   │   ├── auth.controller.js
 │   │   └── user.controller.js
 │   │
-│   ├── middleware/
+│   ├── middleware
 │   │   └── auth.middleware.js
 │   │
-│   ├── models/
+│   ├── models
 │   │   └── user.model.js
 │   │
-│   ├── routes/
+│   ├── routes
 │   │   ├── auth.routes.js
-│   │   ├── users.routes.js
-│   │   └── routes.js
+│   │   ├── index.routes.js
+│   │   └── users.routes.js
 │   │
-│   ├── services/
+│   ├── services
 │   │   ├── auth.service.js
 │   │   └── user.service.js
 │   │
-│   ├── utils/
+│   ├── utils
 │   ├── app.js
 │   └── index.js
 │
 ├── .env
 ├── .env.example
+├── .gitignore
 ├── package.json
 ├── package-lock.json
-├── .gitignore
 └── README.md
+```
+
+
 
 ##  Prerequisites
 
