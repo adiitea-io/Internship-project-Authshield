@@ -14,7 +14,11 @@ export const getUserByEmail = async (email) => {
 
 export const getUserById = async (id) => {
     const user = await User.findById(id);
-    return user;  
+    return await User.findById(id).select("-password"); 
 };
 
-
+export const deleteUserById = async (id) => {
+    const user = await User.findByIdAndDelete(id);
+    
+    return user;
+}

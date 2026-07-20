@@ -41,18 +41,18 @@ export const login = async (userData) => {
         throw new Error("Invalid credentials");
     }
 
-    const token = jwt.sign({    //token is basically what we attach with each request so that we dont need verify user each time 
-        id: user.id,                 //no need name for jwt, its not a unique identifier 
+    const token = jwt.sign({    
+        id: user.id,                 
         role: user.role
     },
-        process.env.JWT_SECRET, { expiresIn: "1d" });  
-    //jwt.sign() output will be a string 
+        process.env.JWT_SECRET);  
+    
         
     return {
         token,
         user: {
             id: user.id,
-            name: user.name,   //we are returning user tho its in the token cuz its needed in UI, JWT is auth only
+            name: user.name,   
             email: user.email,
             role: user.role
         }

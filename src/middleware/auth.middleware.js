@@ -5,7 +5,7 @@ export const authMiddleware = (req, res, next) => {
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
         return res.status(401).json({
-            message: "Authorization header missing or invalid"
+            message: "Authorization header is invalid"
         });
     }
     const token = authHeader.split(" ")[1];
@@ -20,7 +20,5 @@ export const authMiddleware = (req, res, next) => {
         return res.status(401).json({
             message: "Invalid or Expired token"
         });
-
     }
-
 }
