@@ -33,4 +33,9 @@ export const loginUser = async (req, res) => {
     }
 }
 
-
+export const logout = async (req, res) => {
+    return res.status(200).json({
+        message : "logged out successfully"
+    })
+}
+    
