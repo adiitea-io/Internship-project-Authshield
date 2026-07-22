@@ -5,6 +5,7 @@ import * as userController from "../controllers/user.controller.js";
 const router = Router();
 
 router.get("/me", authMiddleware, userController.getCurrentUser);
-router.delete("/me", authMiddleware,userController.deleteUser)
+router.delete("/me", authMiddleware, userController.deleteUser);
+router.patch("/change-password", authMiddleware, userController.changePassword);
 
 export default router;
