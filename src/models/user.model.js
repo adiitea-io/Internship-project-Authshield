@@ -19,7 +19,20 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         default: 'user',
+    },
+
+    passwordResetToken: {
+        type: String,
+    },
+
+    passwordResetExpires: {
+        type : Date,
     }
+
+
+
+
+
 });
 
 const User = mongoose.model("User", userSchema);

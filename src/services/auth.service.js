@@ -1,5 +1,7 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import crypto from "crypto";
+import User from "../models/user.model.js";
 import { createUser, getUserByEmail } from "./user.service.js";
 
 export const register = async (userData) => {
@@ -57,4 +59,60 @@ export const login = async (userData) => {
             role: user.role
         }
     };
+}
+
+export const forgotPassword = async(email) => {
+    const user = await getUserByEmail(email);
+
+    if (!user) {
+        throw new Error("User not found")
+    }
+
+    const resetToken = crypto.randomBytes(32).toString("hex");
+    const hashedToken = crypto
+        .createHash("sha256")
+        .update(resetToken)
+        .digest("hex");
+    
+    user.passwordResetToken = hashedToken;
+
+    user.passwordResetExpires = Date.now() + 15 * 60 * 1000;
+
+    await user.save();
+    return resetToken;
+
+}
+
+export const resetPassword = async (resetToken, newPassword) => {
+  
+    const hashedToken = crypto
+        .createHash("sha256")
+        .update(resetToken)
+        .digest("hex");
+    
+    
+    
+    const user = await User.findOne({
+         passwordResetToken: hashedToken,
+        passwordResetExpires: { $gt: Date.now() }
+    })
+      
+     
+
+    if (!user) {
+        throw new Error("Invalid token")
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    user.password = hashedPassword;
+
+    
+
+    user.passwordResetToken = undefined;
+    user.passwordResetExpires = undefined;
+    console.log("5. About to save");
+    await user.save();
+
+
+    
 }
