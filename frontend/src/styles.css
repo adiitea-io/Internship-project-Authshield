@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+    /* Background */
+    --sky-1: #eef7ff;
+    --sky-2: #d7ebfc;
+    --sky-3: #b7dbf7;
+    --sky-4: #9bc9f2;
+
+    /* Glass */
+    --card: rgba(255, 255, 255, 0.72);
+    --card-strong: rgba(255, 255, 255, 0.92);
+
+    /* Accent */
+    --primary: #ff8364;
+    --primary-dark: #ff5e62;
+
+    /* Text */
+    --text-primary: #1c2a3a;
+    --text-secondary: #5c6f88;
+    --text-dim: #8ea0b8;
+
+    /* Border */
+    --border: rgba(28, 58, 94, 0.1);
+
+    /* Radius */
+    --radius-card: 18px;
+    --radius-input: 9px;
+
+    /* Shadows */
+    --shadow-card: 0 30px 60px -24px rgba(28, 58, 94, 0.28);
+    --shadow-button: 0 10px 24px -8px rgba(255, 94, 98, 0.45);
+
+    /* Fonts */
+    --heading-font: "Playfair Display", serif;
+    --body-font: "Inter", sans-serif;
+
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100vh;
+    font-family: var(--body-font);
+    color: var(--text-primary);
+
+    background:
+        radial-gradient(ellipse 900px 700px at 15% 0%,
+            rgba(255, 255, 255, 0.7),
+            transparent 55%),
+        linear-gradient(150deg,
+            var(--sky-1) 0%,
+            var(--sky-2) 40%,
+            var(--sky-3) 70%,
+            var(--sky-4) 100%);
+
+    background-attachment: fixed;
+}
