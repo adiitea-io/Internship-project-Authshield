@@ -1,1 +1,76 @@
-<p>register works!</p>
+<div class="register-container">
+    <div class="register-card">
+
+        <div class="register-header">
+            <h1>Create Account</h1>
+            <p>Join AuthShield today.</p>
+        </div>
+
+        <form class="register-form">
+
+            <!-- Full Name -->
+            <div class="input-group">
+                <label for="fullName">Full Name</label>
+
+                <input
+                    pInputText
+                    id="fullName"
+                    type="text"
+                    placeholder="Enter your full name">
+            </div>
+
+            <!----> Email -->
+            <div class="input-group">
+                <label for="email">Email Address</label>
+
+                <input
+                    pInputText
+                    id="email"
+                    type="email"
+                    placeholder="Enter your email">
+            </div>
+
+            <!-- Password -->
+            <div class="input-group">
+                <label for="password">Password</label>
+
+                <p-password
+                    inputId="password"
+                    [feedback]="false"
+                    [toggleMask]="true"
+                    placeholder="Create a password">
+                </p-password>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="input-group">
+                <label for="confirmPassword">Confirm Password</label>
+
+                <p-password
+                    inputId="confirmPassword"
+                    [feedback]="false"
+                    [toggleMask]="true"
+                    placeholder="Confirm your password">
+                </p-password>
+            </div>
+
+            <!-- Register Button -->
+            <p-button
+                label="Create Account"
+                icon="pi pi-user-plus"
+                styleClass="w-full">
+            </p-button>
+
+        </form>
+
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <div class="login-link">
+            Already have an account?
+            <a routerLink="/login">Sign In</a>
+        </div>
+
+    </div>
+</div>

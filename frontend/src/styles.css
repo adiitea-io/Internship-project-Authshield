@@ -36,6 +36,10 @@
     --body-font: "Inter", sans-serif;
 
     --transition: 0.3s ease;
+
+    --primary-glow: rgba(255, 131, 100, 0.4);
+ 
+
 }
 
 * {
@@ -62,3 +66,4 @@ body {
 
     background-attachment: fixed;
 }
+

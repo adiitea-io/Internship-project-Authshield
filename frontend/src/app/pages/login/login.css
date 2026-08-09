@@ -86,6 +86,16 @@ h1 {
   font-size: 1rem;
 }
 
+:host ::ng-deep .p-inputtext:enabled:focus,
+:host ::ng-deep .p-password input:enabled:focus {
+    border-color: var(--primary) !important;
+    
+    outline: none !important;
+}
+:host ::ng-deep .p-inputtext:focus-visible,
+:host ::ng-deep .p-password input:focus-visible {
+  outline: none;
+}
 /* PrimeNG Password */
 
 :host ::ng-deep .p-password {
@@ -95,8 +105,9 @@ h1 {
 
 :host ::ng-deep .p-password input {
   width: 100%;
-  padding-right: 3rem;
+  padding-right: 3rem;   
 }
+
 
 :host ::ng-deep .p-password-toggle-mask {
   position: absolute;
@@ -213,3 +224,4 @@ h1 {
   text-decoration: none;
   font-weight: 600;
 }
+
