@@ -10,7 +10,7 @@
             Sign in to continue
         </p>
 
-        <form class="login-form">
+        <form class="login-form" (ngSubmit)="login()">
 
             <div class="form-group">
                 <label>Email</label>
@@ -29,10 +29,10 @@
             </div>
 
             <div class="forgot-password">
-                <a href="#">Forgot Password</a>
+                <a href="/forgot-password">Forgot Password</a>
             </div>
 
-            <p-button label="Sign In"></p-button>
+            <p-button label="Sign In" type="submit"></p-button>
 
 
             <div class=" divider">
@@ -41,7 +41,7 @@
 
             <p class="register-link">
                 Don't have an account?
-                <a href="#">Create one</a>
+                <a href="/register">Create one</a>
             </p>
 
         </form>
