@@ -6,7 +6,7 @@
             <p>Join AuthShield today.</p>
         </div>
 
-        <form class="register-form" (ngSubmit)="register()">
+        <form #registerForm="ngForm" class="register-form" (ngSubmit)="register(registerForm)">
 
             <!-- Full Name -->
             <div class="input-group">
@@ -21,7 +21,14 @@
             <div class="input-group">
                 <label for="email">Email Address</label>
 
-                <input pInputText id="email" type="email" placeholder="Enter your email" [(ngModel)]="email" name="email">
+                <input pInputText id="email" type="email" placeholder="Enter your email" [(ngModel)]="email"
+                    name="email" required email pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$">
+
+                <small *ngIf="emailError" style="color: red; font-size: 13px;">
+                    {{ emailError }}
+                </small>
+
+
             </div>
 
             <!-- Password -->
@@ -29,22 +36,63 @@
                 <label for="password">Password</label>
 
                 <p-password inputId="password" [feedback]="false" [toggleMask]="true" placeholder="Create a password"
-                    [(ngModel)]="password" name="password">
+                    [(ngModel)]="password" (ngModelChange)="passwordChanged()" name="password" #passwordField="ngModel"
+                    [pattern]="passwordPattern" required>
                 </p-password>
-            </div>
 
-            <!-- Confirm Password -->
-            <div class="input-group">
-                <label for="confirmPassword">Confirm Password</label>
+                <div *ngIf="password.length > 0" class="password-requirements">
 
-                <p-password inputId="confirmPassword" [feedback]="false" [toggleMask]="true"
-                    placeholder="Confirm your password" [(ngModel)]="confirmPassword" name="confirmPassword">
-                </p-password>
-            </div>
+                    <div [class.valid]="hasMinLength()">
+                        <span class="requirement-icon">
+                            {{hasMinLength()? '✔' : '✖'}}
+                        </span>
+                        <span>At least 8 characters</span>
+                    </div>
 
-            <!-- Register Button -->
-            <p-button label="Create Account" icon="pi pi-user-plus" styleClass="w-full" type="submit">
-            </p-button>
+                    <div [class.valid]="hasUppercase()">
+                        <span class="requirement-icon">
+                            {{hasUppercase()? '✔' : '✖'}}
+                        </span>
+                        <span>At least one uppercase letter</span>
+                    </div>
+
+                    <div [class.valid]="hasLowercase()">
+                        <span class="requirement-icon">
+                            {{hasLowercase()? '✔' : '✖'}}
+                        </span>
+                        <span>At least one lowercase letter</span>
+                    </div>
+
+                    <div [class.valid]="hasNumber()">
+                        <span class="requirement-icon">
+                            {{hasNumber()? '✔' : '✖'}}
+                        </span>
+                        <span>At least one number</span>
+                    </div>
+
+                    <div [class.valid]="hasSpecialCharacter()">
+                        <span class="requirement-icon">
+                            {{hasSpecialCharacter()? '✔' : '✖'}}
+                        </span>
+                        <span>At least one special character (@, $, !, %, *, ?, &)</span>
+                    </div>
+
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password</label>
+
+                    <p-password inputId="confirmPassword" [feedback]="false" [toggleMask]="true"
+                        placeholder="Confirm your password" [(ngModel)]="confirmPassword" name="confirmPassword"
+                        required>
+                    </p-password>
+                </div>
+
+                <!-- Register Button -->
+                <p-button label="Create Account" icon="pi pi-user-plus" styleClass="w-full" type="submit">
+                </p-button>
+             </div>
 
         </form>
 

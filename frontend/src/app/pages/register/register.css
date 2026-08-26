@@ -11,11 +11,9 @@
     max-width: 460px;
     padding: 2.5rem;
     border-radius: var(--radius-card);
-    background: linear-gradient(
-        180deg,
-        var(--card-strong),
-        var(--card)
-    );
+    background: linear-gradient(180deg,
+            var(--card-strong),
+            var(--card));
 
     backdrop-filter: blur(18px);
     border: 1px solid rgba(255, 255, 255, 0.6);
@@ -68,7 +66,7 @@
 .input-group label {
     font-size: 0.95rem;
     font-weight: 600;
-     color: var(--text-secondary);
+    color: var(--text-secondary);
 }
 
 /* PrimeNG Text Input */
@@ -117,7 +115,7 @@
 
     border-color: var(--primary);
 
-    
+
 }
 
 /*  Button */
@@ -128,11 +126,9 @@
     margin-top: 0.5rem;
     border: none !important;
     border-radius: var(--radius-input);
-    background: linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary-dark)
-    ) !important;
+    background: linear-gradient(135deg,
+            var(--primary),
+            var(--primary-dark)) !important;
 
     color: white !important;
     font-size: 1rem;
@@ -144,11 +140,9 @@
 :host ::ng-deep .p-button:not(:disabled):hover {
     transform: translateY(-2px);
     filter: brightness(1.05);
-    background: linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary-dark)
-    ) !important;
+    background: linear-gradient(135deg,
+            var(--primary),
+            var(--primary-dark)) !important;
 }
 
 /*  Footer */
@@ -187,4 +181,44 @@
 .login-link a:hover {
     text-decoration: underline;
     text-underline-offset: 3px;
+}
+
+.password-requirements {
+    margin-top: 10px;
+    padding: 10px 12px;
+
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(155, 201, 242, 0.35);
+
+    font-family: var(--body-font);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.password-requirements div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #ff5e62;
+
+    transition: color 0.2s ease;
+}
+
+.password-requirements div.valid {
+    color: #22a06b;
+}
+
+.requirement-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 16px;
+    height: 16px;
+
+    font-size: 11px;
+    font-weight: 700;
 }

@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 
 import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
+import AuthShieldPreset from './app-theme';
 
 import { routes } from './app.routes';
 
@@ -14,7 +14,11 @@ export const appConfig: ApplicationConfig = {
 
     providePrimeNG({
       theme: {
-        preset: Aura
+        preset: AuthShieldPreset,
+
+        options: {
+          darkModeSelector: false
+        }
       }
     })
   ]
