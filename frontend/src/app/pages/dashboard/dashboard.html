@@ -1,1 +1,245 @@
-<p>dashboard works!</p>
+<div class="dashboard-layout">
+
+    <!--  SIDEBAR -->
+    <aside class="sidebar">
+
+        <!-- Logo -->
+        <div class="sidebar-logo">
+            <div class="logo-mark">
+                <i class="pi pi-shield"></i>
+            </div>
+            <span>AuthShield</span>
+        </div>
+
+
+        <!-- Overview -->
+        <div class="sidebar-section">
+
+            <nav class="sidebar-nav">
+
+                <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                    class="nav-item">
+
+                    <i class="pi pi-home"></i>
+                    <span>Dashboard</span>
+
+                </a>
+
+
+                <a routerLink="/users" routerLinkActive="active" class="nav-item">
+
+                    <i class="pi pi-users"></i>
+                    <span>Users</span>
+
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <!-- Account -->
+        <div class="sidebar-section">
+
+            <span class="section-title">ACCOUNT</span>
+
+            <nav class="sidebar-nav">
+
+                <a routerLink="/profile" routerLinkActive="active" class="nav-item">
+
+                    <i class="pi pi-user"></i>
+                    <span>My Profile</span>
+
+                </a>
+
+
+                <a routerLink="/settings" routerLinkActive="active" class="nav-item">
+
+                    <i class="pi pi-cog"></i>
+                    <span>Settings</span>
+
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <!-- Sidebar bottom -->
+        <div class="sidebar-footer">
+
+            <div class="user-mini">
+
+                <p-avatar label="A" shape="circle">
+                </p-avatar>
+
+                <div class="user-info">
+                    <span class="user-name">User Name</span>
+                    <span class="user-role">Admin</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- Main dashboard box  -->
+    <main class="main-content">
+
+
+        <!--  Header -->
+        <header class="dashboard-header">
+
+            <div class="header-title">
+
+                <h1>Dashboard</h1>
+
+                <p>
+                    Welcome back, here's what's happening with your users.
+                </p>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <!-- Search -->
+                <span class="p-input-icon-left search-box">
+
+                    <i class="pi pi-search"></i>
+
+                    <input pInputText type="text" placeholder="Search users, sessions..." />
+
+                </span>
+
+
+                <!-- Notifications -->
+                <p-button icon="pi pi-bell" [text]="true" [rounded]="true" severity="secondary"
+                    class="notification-button">
+                </p-button>
+
+
+                <!-- Profile -->
+                <p-avatar label="A" shape="circle" class="profile-avatar">
+                </p-avatar>
+
+            </div>
+
+        </header>
+
+
+        <!-- Dashboard content will go here -->
+        <section class="dashboard-content">
+
+            <section class="dashboard-content">
+
+                <div class="employee-card">
+
+                    <!-- Employee Header -->
+                    <div class="employee-header">
+
+                        <div>
+                            <h2>Employees</h2>
+                            <p>Manage and monitor your employees.</p>
+                        </div>
+
+                        <p-button label="Add Employee" icon="pi pi-plus" styleClass="add-employee-button">
+                        </p-button>
+
+                    </div>
+
+
+                    <!-- Employee Table -->
+
+
+                    <p-table [value]="employees" [paginator]="true" [rows]="7" [rowsPerPageOptions]="[7, 10, 20]"
+                        styleClass="employee-table">
+
+                        <!-- Header -->
+                        <ng-template #header>
+
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>Designation</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+
+                        </ng-template>
+
+
+                        <!-- Body -->
+                        <ng-template #body let-employee>
+
+                            <tr>
+
+                                <td>
+                                    {{ employee.employeeId }}
+                                </td>
+
+                                <td>
+                                    <span class="employee-name">
+                                        {{ employee.firstName }} {{ employee.lastName }}
+                                    </span>
+                                </td>
+
+                                <td>
+                                    {{ employee.department }}
+                                </td>
+
+                                <td>
+                                    {{ employee.designation }}
+                                </td>
+
+                                <td>
+                                    {{ employee.email }}
+                                </td>
+
+                                <td>
+                                    <p-tag [value]="employee.status"
+                                        [severity]="employee.status === 'Active' ? 'success' : 'danger'">
+                                    </p-tag>
+                                </td>
+
+                                <td>
+
+                                    <div class="employee-actions">
+
+                                        <p-button icon="pi pi-pencil" [text]="true" severity="secondary"
+                                            ariaLabel="Edit employee">
+                                        </p-button>
+
+                                        <p-button icon="pi pi-trash" [text]="true" severity="danger"
+                                            ariaLabel="Delete employee">
+                                        </p-button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        </ng-template>
+
+                    </p-table>
+
+
+
+                </div>
+
+            </section>
+
+
+
+        </section>
+
+
+    </main>
+
+</div>

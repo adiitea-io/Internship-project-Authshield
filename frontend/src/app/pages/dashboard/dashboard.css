@@ -1,0 +1,748 @@
+.dashboard-layout {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/*SIDEBAR  */
+
+.sidebar {
+    width: 280px;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 28px 14px 20px;
+
+    background: rgba(255, 255, 255, 0.48);
+    border-right: 1px solid var(--border);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+
+/* Logo */
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 0 12px;
+    margin-bottom: 54px;
+
+    font-family: var(--heading-font);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.logo-mark {
+    width: 38px;
+    height: 38px;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+
+    box-shadow: 0 8px 18px -6px var(--primary-glow);
+}
+
+.logo-mark i{
+    color: white;
+    font-size:19px;
+}
+
+
+/* Sidebar sections */
+
+.sidebar-section {
+    margin-bottom: 34px;
+}
+
+.section-title {
+    display: block;
+
+    padding: 0 12px;
+    margin-bottom: 12px;
+
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+
+    color: var(--text-dim);
+}
+
+
+/* Navigation */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    height: 48px;
+    padding: 0 14px;
+
+    border-radius: var(--radius-input);
+
+    color: var(--text-secondary);
+
+    font-size: 15px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: var(--transition);
+}
+
+.nav-item i {
+    font-size: 17px;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.65);
+    color: var(--text-primary);
+}
+
+.nav-item.active {
+    color: var(--primary-dark);
+
+    background: linear-gradient(
+        90deg,
+        rgba(255, 131, 100, 0.12),
+        rgba(255, 131, 100, 0.04)
+    );
+
+    border: 1px solid rgba(255, 131, 100, 0.22);
+}
+
+.nav-item.active i {
+    color: var(--primary);
+}
+
+
+/* Sidebar footer */
+
+.sidebar-footer {
+    margin-top: auto;
+
+    padding: 18px 12px 0;
+
+    border-top: 1px solid var(--border);
+}
+
+.user-mini {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.user-role {
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+
+/*  MAIN CONTENT  */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+
+    padding: 30px 42px;
+
+    background:
+        radial-gradient(
+            ellipse 700px 500px at 90% 0%,
+            rgba(255, 255, 255, 0.65),
+            transparent 60%
+        );
+}
+
+
+/* HEADER  */
+
+.dashboard-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    margin-bottom: 42px;
+}
+
+
+/* Header title */
+
+.header-title h1 {
+    margin: 0;
+
+    font-family: var(--heading-font);
+    font-size: 34px;
+    font-weight: 600;
+
+    color: var(--text-primary);
+}
+
+.header-title p {
+    margin: 5px 0 0;
+
+    font-size: 15px;
+    color: var(--text-secondary);
+}
+
+
+/* Header actions */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+/* Search */
+
+.search-box {
+    position: relative;
+    display: block;
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--text-dim);
+
+    z-index: 1;
+}
+
+.search-box input {
+    width: 325px;
+    height: 44px;
+
+    padding-left: 42px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-input);
+
+    background: rgba(255, 255, 255, 0.68);
+
+    color: var(--text-primary);
+
+    box-shadow: 0 8px 20px -14px rgba(28, 58, 94, 0.25);
+
+    transition: var(--transition);
+}
+
+.search-box input::placeholder {
+    color: var(--text-dim);
+}
+
+.search-box input:focus {
+    border-color: rgba(255, 131, 100, 0.45);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 131, 100, 0.1),
+        0 8px 20px -14px rgba(28, 58, 94, 0.25);
+}
+
+
+/* Notification button */
+
+.notification-button {
+    width: 44px;
+    height: 44px;
+
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-input) !important;
+
+    background: rgba(255, 255, 255, 0.68) !important;
+
+    color: var(--text-secondary) !important;
+
+    transition: var(--transition);
+}
+
+.notification-button:hover {
+    color: var(--primary-dark) !important;
+
+    background: rgba(255, 255, 255, 0.9) !important;
+
+    border-color: rgba(255, 131, 100, 0.25) !important;
+}
+
+
+/* Profile avatar */
+
+.profile-avatar {
+    width: 44px !important;
+    height: 44px !important;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    ) !important;
+
+    color: white !important;
+
+    font-weight: 600;
+}
+
+
+/* ==== DASHBOARD CONTENT ==== */
+
+.dashboard-content {
+    width: 100%;
+}
+
+
+/*  RESPONSIVE  */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .main-content {
+        padding: 28px;
+    }
+
+    .search-box input {
+        width: 240px;
+    }
+}
+
+
+@media (max-width: 760px) {
+
+    .sidebar {
+        width: 76px;
+        padding: 28px 10px;
+    }
+
+    .sidebar-logo span,
+    .section-title,
+    .nav-item span,
+    .user-info {
+        display: none;
+    }
+
+    .sidebar-logo {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .nav-item {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .sidebar-footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .user-mini {
+        justify-content: center;
+    }
+
+    .main-content {
+        padding: 24px 20px;
+    }
+
+    .dashboard-header {
+        align-items: flex-start;
+    }
+
+    .header-title p {
+        display: none;
+    }
+
+    .search-box {
+        display: none;
+    }
+}
+
+.dashboard-content {
+    width: 100%;
+}
+
+
+/* ==EMPLOYEE CARD=== */
+
+.employee-card {
+    width: 100%;
+    padding: 26px 28px 18px;
+
+    background: rgba(255, 255, 255, 0.52);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 18px 40px -28px rgba(28, 58, 94, 0.30);
+}
+
+
+/* Employee header */
+
+.employee-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.employee-header h2 {
+    margin: 0;
+
+    font-family: var(--heading-font);
+    font-size: 22px;
+    font-weight: 700;
+
+    color: var(--text-primary);
+}
+
+.employee-header p {
+    margin: 5px 0 0;
+
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+
+/* Add Employee button */
+
+::ng-deep .add-employee-button.p-button {
+    height: 42px !important;
+    padding: 0 18px !important;
+
+    border: none !important;
+    border-radius: var(--radius-input) !important;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    ) !important;
+
+    color: #ffffff !important;
+
+    font-family: var(--body-font) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+
+    box-shadow: 0 8px 18px -8px var(--primary-glow) !important;
+
+    transition: var(--transition) !important;
+}
+
+.add-employee-button.p-button:hover {
+    background: linear-gradient(
+        135deg,
+        var(--primary-dark),
+        var(--primary)
+    ) !important;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 10px 22px -8px var(--primary-glow) !important;
+}
+
+
+
+/* ==EMPLOYEE TABLE== */
+
+.employee-table {
+    width: 100%;
+}
+
+
+/* Table wrapper */
+
+.employee-table .p-datatable-table-container {
+    overflow-x: auto;
+}
+
+
+/* Actual table */
+
+.employee-table .p-datatable-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+
+/* Header */
+
+.employee-table .p-datatable-thead > tr > th {
+    padding: 15px 14px;
+
+    background: rgba(255, 255, 255, 0.42) !important;
+
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+
+    color: var(--text-dim) !important;
+
+    font-size: 11px !important;
+    font-weight: 700 !important;
+
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+
+    white-space: nowrap;
+}
+
+
+/* First header cell */
+
+.employee-table .p-datatable-thead > tr > th:first-child {
+    border-top-left-radius: 12px;
+}
+
+
+/* Last header cell */
+
+.employee-table .p-datatable-thead > tr > th:last-child {
+    border-top-right-radius: 12px;
+}
+
+
+/* Body rows */
+
+.employee-table .p-datatable-tbody > tr {
+    background: transparent !important;
+
+    transition: var(--transition);
+}
+
+
+/* Hover */
+
+.employee-table .p-datatable-tbody > tr:hover {
+    background: rgba(255, 255, 255, 0.48) !important;
+}
+
+
+/* Body cells */
+
+.employee-table .p-datatable-tbody > tr > td {
+    padding: 16px 14px;
+
+    border: none !important;
+    border-bottom: 1px solid rgba(28, 58, 94, 0.07) !important;
+
+    background: transparent !important;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    white-space: nowrap;
+}
+
+
+/* Employee name */
+
+.employee-name {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+
+/* ==STATUS== */
+
+.employee-table .p-tag {
+    min-width: 64px;
+    justify-content: center;
+
+    padding: 4px 10px !important;
+
+    border-radius: 999px !important;
+
+    font-size: 11px !important;
+    font-weight: 600 !important;
+}
+
+
+/* ==ACTIONS== */
+
+.employee-actions {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.employee-actions .p-button {
+    width: 32px !important;
+    height: 32px !important;
+
+    padding: 0 !important;
+
+    border-radius: 9px !important;
+
+    color: var(--text-secondary) !important;
+
+    background: rgba(255, 255, 255, 0.48) !important;
+    border: 1px solid transparent !important;
+
+    transition: var(--transition);
+}
+
+.employee-actions .p-button:hover {
+    background: rgba(255, 255, 255, 0.85) !important;
+
+    color: var(--primary-dark) !important;
+
+    border-color: rgba(255, 131, 100, 0.18) !important;
+}
+
+
+/* Delete */
+
+.employee-actions .p-button.p-button-danger:hover {
+    color: #dc4f4f !important;
+
+    background: rgba(220, 79, 79, 0.08) !important;
+
+    border-color: rgba(220, 79, 79, 0.15) !important;
+}
+
+/* ================================
+   PAGINATOR
+================================ */
+
+/* PrimeNG DataTable paginator wrapper */
+
+::ng-deep .employee-table .p-datatable-paginator-bottom {
+    background: transparent !important;
+    border: none !important;
+}
+
+
+/* Paginator */
+
+::ng-deep .employee-table .p-paginator {
+    margin-top: 14px !important;
+    padding: 10px 4px 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+
+    color: var(--text-secondary) !important;
+    font-family: var(--body-font) !important;
+}
+
+
+/* Pagination buttons */
+
+::ng-deep .employee-table .p-paginator .p-paginator-page,
+::ng-deep .employee-table .p-paginator .p-paginator-first,
+::ng-deep .employee-table .p-paginator .p-paginator-prev,
+::ng-deep .employee-table .p-paginator .p-paginator-next,
+::ng-deep .employee-table .p-paginator .p-paginator-last {
+    min-width: 32px !important;
+    height: 32px !important;
+
+    padding: 0 !important;
+
+    border: none !important;
+    border-radius: 9px !important;
+
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+
+    transition: var(--transition) !important;
+}
+
+
+/* Pagination hover */
+
+::ng-deep .employee-table .p-paginator .p-paginator-page:hover,
+::ng-deep .employee-table .p-paginator .p-paginator-first:hover,
+::ng-deep .employee-table .p-paginator .p-paginator-prev:hover,
+::ng-deep .employee-table .p-paginator .p-paginator-next:hover,
+::ng-deep .employee-table .p-paginator .p-paginator-last:hover {
+    background: rgba(255, 255, 255, 0.7) !important;
+    color: var(--primary-dark) !important;
+}
+
+
+/* Current page */
+
+::ng-deep .employee-table .p-paginator .p-paginator-page.p-highlight {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    ) !important;
+
+    color: #ffffff !important;
+}
+
+
+/* Rows per page dropdown */
+
+::ng-deep .employee-table .p-paginator-rpp-dropdown {
+    min-height: 32px !important;
+    margin-left: 8px !important;
+
+    border: 1px solid var(--border) !important;
+    border-radius: 9px !important;
+
+    background: rgba(255, 255, 255, 0.72) !important;
+    color: var(--text-secondary) !important;
+
+    box-shadow: none !important;
+}
+
+::ng-deep .employee-table .p-paginator-rpp-dropdown .p-select-label {
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+}
+
+::ng-deep .employee-table .p-paginator-rpp-dropdown .p-select-dropdown {
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+}

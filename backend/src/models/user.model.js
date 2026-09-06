@@ -29,10 +29,6 @@ const userSchema = new mongoose.Schema({
         type : Date,
     }
 
-
-
-
-
 });
 
 const User = mongoose.model("User", userSchema);
