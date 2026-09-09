@@ -1,1 +1,169 @@
-<p>add-employee works!</p>
+<div class="add-employee-page">
+
+    <!-- Page Header -->
+    <header class="page-header">
+
+        <div>
+            <h1>Add Employee</h1>
+
+            <div class="breadcrumb">
+                <a routerLink="/dashboard">Employees</a>
+                <span>/</span>
+                <span>Add Employee</span>
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- Employee Form Card -->
+    <div class="employee-form-card">
+
+        <!-- Personal & Employment Information -->
+        <div class="form-grid">
+
+            <!-- First Name -->
+            <div class="form-field">
+                <label>First Name <span>*</span></label>
+
+                <input pInputText type="text" placeholder="Enter first name">
+            </div>
+
+
+            <!-- Last Name -->
+            <div class="form-field">
+                <label>Last Name <span>*</span></label>
+
+                <input pInputText type="text" placeholder="Enter last name">
+            </div>
+
+
+            <!-- Email -->
+            <div class="form-field">
+                <label>Email <span>*</span></label>
+
+                <input pInputText type="email" placeholder="Enter email">
+            </div>
+
+
+            <!-- Phone -->
+            <div class="form-field">
+                <label>Phone <span>*</span></label>
+
+                <input pInputText type="text" placeholder="Enter phone number">
+            </div>
+
+
+            <!-- Department -->
+            <div class="form-field">
+                <label>Department <span>*</span></label>
+
+                <p-select placeholder="Select department">
+                </p-select>
+            </div>
+
+
+            <!-- Designation -->
+            <div class="form-field">
+                <label>Designation <span>*</span></label>
+
+                <p-select placeholder="Select designation">
+                </p-select>
+            </div>
+
+
+            <!-- Date of Joining -->
+            <div class="form-field">
+                <label>Date of Joining <span>*</span></label>
+
+                <p-datepicker placeholder="Select date" [showIcon]="true">
+                </p-datepicker>
+            </div>
+
+
+            <!-- Salary -->
+            <div class="form-field">
+                <label>Salary <span>*</span></label>
+
+                <input pInputText type="number" placeholder="Enter salary">
+            </div>
+
+
+            <!-- Status -->
+            <div class="form-field">
+                <label>Status <span>*</span></label>
+
+                <p-select placeholder="Select status">
+                </p-select>
+            </div>
+
+        </div>
+
+
+        <!-- Documents -->
+        <div class="documents-section">
+
+            <div class="documents-header">
+
+                <div>
+                    <h2>Upload Documents</h2>
+
+                    <p>
+                        Upload employee documents
+                        (PDF, JPG, PNG · Max 2MB each)
+                    </p>
+                </div>
+
+                <span>Uploaded Files</span>
+
+            </div>
+
+
+            <div class="documents-grid">
+
+                <!-- Upload Area -->
+                <label class="upload-box">
+
+                    <input type="file" multiple accept=".pdf,.jpg,.jpeg,.png">
+
+                    <i class="pi pi-cloud-upload"></i>
+
+                    <strong>
+                        Drag & drop files here
+                    </strong>
+
+                    <span>
+                        or click to browse
+                    </span>
+
+                </label>
+
+
+                <!-- Files will appear here later -->
+                <div class="file-list">
+
+                    <p class="empty-files">
+                        No files selected
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+
+            <p-button label="Cancel" severity="secondary" routerLink="/dashboard" styleClass="cancel-button">
+            </p-button>
+
+            <p-button label="Save Employee" icon="pi pi-check" styleClass="save-button">
+            </p-button>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,475 @@
+.add-employee-page {
+    min-height: 100vh;
+    padding: 30px 42px;
+
+    background:
+        radial-gradient(
+            ellipse 700px 500px at 90% 0%,
+            rgba(255, 255, 255, 0.65),
+            transparent 60%
+        );
+}
+
+
+/* ================================
+   PAGE HEADER
+================================ */
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    margin: 0;
+
+    font-family: var(--heading-font);
+    font-size: 34px;
+    font-weight: 600;
+
+    color: var(--text-primary);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 7px;
+
+    font-size: 13px;
+    color: var(--text-dim);
+}
+
+.breadcrumb a {
+    color: var(--primary-dark);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--primary);
+}
+
+
+/* ================================
+   FORM CARD
+================================ */
+
+.employee-form-card {
+    width: 100%;
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.52);
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 18px 40px -28px rgba(28, 58, 94, 0.30);
+}
+
+
+/* ================================
+   FORM GRID
+================================ */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px 18px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.form-field label {
+    font-size: 12px;
+    font-weight: 600;
+
+    color: var(--text-secondary);
+}
+
+.form-field label span {
+    color: var(--primary);
+}
+
+
+/* Inputs */
+
+.form-field input {
+    width: 100%;
+    height: 44px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-input);
+
+    background: rgba(255, 255, 255, 0.68);
+
+    color: var(--text-primary);
+
+    box-shadow: 0 8px 20px -14px rgba(28, 58, 94, 0.25);
+
+    transition: var(--transition);
+}
+
+.form-field input::placeholder {
+    color: var(--text-dim);
+}
+
+.form-field input:focus {
+    border-color: rgba(255, 131, 100, 0.45);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 131, 100, 0.10),
+        0 8px 20px -14px rgba(28, 58, 94, 0.25);
+}
+
+
+/* PrimeNG Select + DatePicker */
+
+.form-field ::ng-deep .p-select,
+.form-field ::ng-deep .p-datepicker {
+    width: 100%;
+}
+
+.form-field ::ng-deep .p-select {
+    height: 44px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-input);
+
+    background: rgba(255, 255, 255, 0.68);
+}
+
+.form-field ::ng-deep .p-datepicker-input {
+    height: 44px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-input);
+
+    background: rgba(255, 255, 255, 0.68);
+}
+
+
+/* ================================
+   DOCUMENTS
+================================ */
+
+.documents-section {
+    margin-top: 34px;
+    padding-top: 28px;
+
+    border-top: 1px solid var(--border);
+}
+
+.documents-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    margin-bottom: 18px;
+}
+
+.documents-header h2 {
+    margin: 0;
+
+    font-family: var(--heading-font);
+    font-size: 20px;
+    font-weight: 600;
+
+    color: var(--text-primary);
+}
+
+.documents-header p {
+    margin: 5px 0 0;
+
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+.uploaded-title {
+    font-size: 12px;
+    font-weight: 600;
+
+    color: var(--text-secondary);
+}
+
+
+/* Document layout */
+
+.documents-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* Upload box */
+
+.upload-box {
+    min-height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 1px dashed rgba(255, 131, 100, 0.40);
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.34);
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+.upload-box:hover {
+    background: rgba(255, 255, 255, 0.58);
+
+    border-color: rgba(255, 131, 100, 0.65);
+
+    transform: translateY(-1px);
+}
+
+.upload-box input {
+    display: none;
+}
+
+.upload-box i {
+    font-size: 28px;
+    color: var(--primary);
+}
+
+.upload-box strong {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.upload-box span {
+    font-size: 11px;
+    color: var(--text-dim);
+}
+
+
+/* ================================
+   FILE LIST
+================================ */
+
+.file-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.empty-files {
+    margin: 0;
+
+    padding: 20px;
+
+    text-align: center;
+
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+
+    min-height: 44px;
+    padding: 0 12px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.42);
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+.file-info i {
+    color: var(--primary);
+}
+
+.file-info span {
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.file-size {
+    margin-right: 10px;
+
+    font-size: 11px;
+    color: var(--text-dim);
+}
+
+.remove-file {
+    width: 28px;
+    height: 28px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--text-dim);
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+.remove-file:hover {
+    color: #dc4f4f;
+    background: rgba(220, 79, 79, 0.08);
+}
+
+
+/* ================================
+   ACTIONS
+================================ */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 30px;
+    padding-top: 22px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+/* Cancel */
+
+::ng-deep .cancel-button.p-button {
+    height: 42px;
+
+    padding: 0 18px;
+
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-input) !important;
+
+    background: rgba(255, 255, 255, 0.60) !important;
+
+    color: var(--text-secondary) !important;
+}
+
+
+/* Save */
+
+::ng-deep .save-button.p-button {
+    height: 42px;
+
+    padding: 0 20px;
+
+    border: none !important;
+    border-radius: var(--radius-input) !important;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    ) !important;
+
+    color: #ffffff !important;
+
+    font-weight: 600 !important;
+
+    box-shadow:
+        0 8px 18px -8px var(--primary-glow) !important;
+
+    transition: var(--transition) !important;
+}
+
+::ng-deep .save-button.p-button:hover {
+    background: linear-gradient(
+        135deg,
+        var(--primary-dark),
+        var(--primary)
+    ) !important;
+
+    transform: translateY(-1px);
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1000px) {
+
+    .add-employee-page {
+        padding: 28px;
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .documents-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .add-employee-page {
+        padding: 22px 18px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .employee-form-card {
+        padding: 22px;
+    }
+
+    .documents-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .form-actions p-button {
+        width: 100%;
+    }
+}

@@ -1,8 +1,11 @@
 import { Routes } from '@angular/router';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
-import {ForgotPassword} from './pages/forgot-password/forgot-password';
+import { ForgotPassword } from './pages/forgot-password/forgot-password';
 import { Dashboard } from './pages/dashboard/dashboard';
+import { AddEmployee } from './pages/add-employee/add-employee';
+
+
 export const routes: Routes = [
     {
         path: 'login',
@@ -22,8 +25,13 @@ export const routes: Routes = [
     {
         path: 'dashboard',
         component: Dashboard,
+    },
+
+    {
+        path: 'employees-add',
+        component: AddEmployee,
     }
 
-   
+
 ];
 
