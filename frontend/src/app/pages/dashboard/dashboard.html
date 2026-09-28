@@ -146,7 +146,8 @@
                             <p>Manage and monitor your employees.</p>
                         </div>
 
-                        <p-button label="Add Employee" icon="pi pi-plus" styleClass="add-employee-button">
+                        <p-button label="Add Employee" icon="pi pi-plus" styleClass="add-employee-button"
+                            routerLink="/employees-add">
                         </p-button>
 
                     </div>
@@ -212,12 +213,11 @@
                                     <div class="employee-actions">
 
                                         <p-button icon="pi pi-pencil" [text]="true" severity="secondary"
-                                            ariaLabel="Edit employee">
+                                            ariaLabel="Edit employee" (onClick)="editEmployee(employee._id!)">
                                         </p-button>
 
-                                        <p-button icon="pi pi-trash" [text]="true" severity="danger"
-                                            ariaLabel="Delete employee">
-                                        </p-button>
+
+
 
                                     </div>
 

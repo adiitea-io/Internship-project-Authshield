@@ -30,6 +30,11 @@ export const routes: Routes = [
     {
         path: 'employees-add',
         component: AddEmployee,
+    },
+
+    {
+        path: 'employees-edit/:id',
+        component: AddEmployee,
     }
 
 

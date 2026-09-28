@@ -4,12 +4,12 @@
     <header class="page-header">
 
         <div>
-            <h1>Add Employee</h1>
+            <h1>{{ employeeId ? 'Edit Employee' : 'Add Employee' }}</h1>
 
             <div class="breadcrumb">
                 <a routerLink="/dashboard">Employees</a>
                 <span>/</span>
-                <span>Add Employee</span>
+                <span>{{ employeeId ? 'Edit Employee' : 'Add Employee' }}</span>
             </div>
         </div>
 
@@ -17,16 +17,22 @@
 
 
     <!-- Employee Form Card -->
-    <div class="employee-form-card">
+    <form [formGroup]="employeeForm" class="employee-form-card">
 
         <!-- Personal & Employment Information -->
         <div class="form-grid">
+
+            <!-- Employee ID -->
+            <div class="form-field">
+                <label>Employee ID <span>*</span></label>
+                <input pInputText type="text" placeholder="Enter employee ID" formControlName="employeeId">
+            </div>
 
             <!-- First Name -->
             <div class="form-field">
                 <label>First Name <span>*</span></label>
 
-                <input pInputText type="text" placeholder="Enter first name">
+                <input pInputText type="text" placeholder="Enter first name" formControlName="firstName">
             </div>
 
 
@@ -34,7 +40,7 @@
             <div class="form-field">
                 <label>Last Name <span>*</span></label>
 
-                <input pInputText type="text" placeholder="Enter last name">
+                <input pInputText type="text" placeholder="Enter last name" formControlName="lastName">
             </div>
 
 
@@ -42,7 +48,7 @@
             <div class="form-field">
                 <label>Email <span>*</span></label>
 
-                <input pInputText type="email" placeholder="Enter email">
+                <input pInputText type="email" placeholder="Enter email" formControlName="email">
             </div>
 
 
@@ -50,25 +56,21 @@
             <div class="form-field">
                 <label>Phone <span>*</span></label>
 
-                <input pInputText type="text" placeholder="Enter phone number">
+                <input pInputText type="text" placeholder="Enter phone number" formControlName="phone">
             </div>
 
 
             <!-- Department -->
             <div class="form-field">
                 <label>Department <span>*</span></label>
-
-                <p-select placeholder="Select department">
-                </p-select>
+                <input pInputText type="text" placeholder="Enter department" formControlName="department">
             </div>
 
 
             <!-- Designation -->
             <div class="form-field">
                 <label>Designation <span>*</span></label>
-
-                <p-select placeholder="Select designation">
-                </p-select>
+                <input pInputText type="text" placeholder="Enter designation" formControlName="designation">
             </div>
 
 
@@ -76,7 +78,7 @@
             <div class="form-field">
                 <label>Date of Joining <span>*</span></label>
 
-                <p-datepicker placeholder="Select date" [showIcon]="true">
+                <p-datepicker placeholder="Select date" [showIcon]="true" formControlName="dateOfJoining">
                 </p-datepicker>
             </div>
 
@@ -85,7 +87,7 @@
             <div class="form-field">
                 <label>Salary <span>*</span></label>
 
-                <input pInputText type="number" placeholder="Enter salary">
+                <input pInputText type="number" placeholder="Enter salary" formControlName="salary">
             </div>
 
 
@@ -93,7 +95,10 @@
             <div class="form-field">
                 <label>Status <span>*</span></label>
 
-                <p-select placeholder="Select status">
+                <p-select [options]="[
+                    { label: 'Active', value: 'Active' },
+                    { label: 'Inactive', value: 'Inactive' }
+                    ]" placeholder="Select status" formControlName="status">
                 </p-select>
             </div>
 
@@ -110,7 +115,7 @@
 
                     <p>
                         Upload employee documents
-                        (PDF, JPG, PNG · Max 2MB each)
+                        (PDF, JPG, PNG · Max 5MB each)
                     </p>
                 </div>
 
@@ -124,7 +129,9 @@
                 <!-- Upload Area -->
                 <label class="upload-box">
 
-                    <input type="file" multiple accept=".pdf,.jpg,.jpeg,.png">
+                    <input type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                        (change)="onFilesSelected($event)">
+
 
                     <i class="pi pi-cloud-upload"></i>
 
@@ -142,9 +149,18 @@
                 <!-- Files will appear here later -->
                 <div class="file-list">
 
-                    <p class="empty-files">
-                        No files selected
-                    </p>
+                    @if (selectedFiles.length === 0) {
+                    <p class="empty-files">No files uploaded</p>
+                    }
+
+                    @for (file of selectedFiles; track file.name) {
+                    <div class="file-item">
+                        <div>
+                            <strong>{{ file.name }}</strong>
+                            <span>{{ (file.size / 1024 / 1024).toFixed(2) }} MB</span>
+                        </div>
+                    </div>
+                    }
 
                 </div>
 
@@ -159,11 +175,12 @@
             <p-button label="Cancel" severity="secondary" routerLink="/dashboard" styleClass="cancel-button">
             </p-button>
 
-            <p-button label="Save Employee" icon="pi pi-check" styleClass="save-button">
+            <p-button [label]="employeeId ? 'Update Employee' : 'Save Employee'" icon="pi pi-check"
+                styleClass="save-button" type="button" (onClick)="saveEmployee()">
             </p-button>
 
         </div>
 
-    </div>
+    </form>
 
 </div>

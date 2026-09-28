@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AvatarModule } from 'primeng/avatar';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -25,8 +25,17 @@ export class Dashboard {
 
   employees: Employee[] = [];
 
+  editEmployee(id: string): void {
+  console.log('Editing employee:', id);
 
-  constructor(private employeeService: EmployeeService) { }
+  this.router.navigate(['/employees-edit', id]);
+}
+
+
+  constructor(
+    private employeeService: EmployeeService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     console.log('Dashboard initialized');
@@ -42,6 +51,8 @@ export class Dashboard {
       }
     });
   }
+
+  
 
 
 }
