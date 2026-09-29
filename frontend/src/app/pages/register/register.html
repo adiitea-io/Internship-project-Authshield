@@ -89,10 +89,16 @@
                     </p-password>
                 </div>
 
+                @if (passwordError) {
+                <p-message severity="error">
+                    {{ passwordError }}
+                </p-message>
+                }
+
                 <!-- Register Button -->
                 <p-button label="Create Account" icon="pi pi-user-plus" styleClass="w-full" type="submit">
                 </p-button>
-             </div>
+            </div>
 
         </form>
 

@@ -6,6 +6,7 @@ import {  Router, RouterLink } from '@angular/router';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
+import { MessageModule } from 'primeng/message';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ import { ButtonModule } from 'primeng/button';
     InputTextModule,
     PasswordModule,
     ButtonModule,
-    RouterLink
+    RouterLink,
+    MessageModule
   ],
   templateUrl: './login.html',
   styleUrl: './login.css'
@@ -24,6 +26,7 @@ export class Login {
 
   email = '';
   password = '';
+  loginError = '';
 
   constructor(private auth: Auth, private router: Router) { }
   
@@ -36,7 +39,8 @@ export class Login {
         this.router.navigate(['/dashboard']);
     },
     error: (error) => {
-      console.error('Login failed', error);
+      
+      this.loginError = 'Invalid email or password';
     }
         
     })

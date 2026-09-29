@@ -26,11 +26,21 @@
                     [toggleMask]="true">
                 </p-password>
 
+                @if (loginError) {
+                <p-message severity="error">
+                    {{ loginError }}
+                </p-message>
+                }
+
             </div>
+
+
 
             <div class="forgot-password">
                 <a href="/forgot-password">Forgot Password</a>
             </div>
+
+
 
             <p-button label="Sign In" type="submit"></p-button>
 
@@ -51,4 +61,4 @@
 
     </div>
 
-</div> 
+</div>

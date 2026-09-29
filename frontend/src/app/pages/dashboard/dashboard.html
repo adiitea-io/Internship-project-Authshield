@@ -38,32 +38,8 @@
         </div>
 
 
-        <!-- Account -->
-        <div class="sidebar-section">
-
-            <span class="section-title">ACCOUNT</span>
-
-            <nav class="sidebar-nav">
-
-                <a routerLink="/profile" routerLinkActive="active" class="nav-item">
-
-                    <i class="pi pi-user"></i>
-                    <span>My Profile</span>
-
-                </a>
-
-
-                <a routerLink="/settings" routerLinkActive="active" class="nav-item">
-
-                    <i class="pi pi-cog"></i>
-                    <span>Settings</span>
-
-                </a>
-
-            </nav>
-
-        </div>
-
+       
+        
 
         <!-- Sidebar bottom -->
         <div class="sidebar-footer">
@@ -103,36 +79,11 @@
 
             </div>
 
-
-            <div class="header-actions">
-
-                <!-- Search -->
-                <span class="p-input-icon-left search-box">
-
-                    <i class="pi pi-search"></i>
-
-                    <input pInputText type="text" placeholder="Search users, sessions..." />
-
-                </span>
-
-
-                <!-- Notifications -->
-                <p-button icon="pi pi-bell" [text]="true" [rounded]="true" severity="secondary"
-                    class="notification-button">
-                </p-button>
-
-
-                <!-- Profile -->
-                <p-avatar label="A" shape="circle" class="profile-avatar">
-                </p-avatar>
-
-            </div>
-
         </header>
 
 
         <!-- Dashboard content will go here -->
-        <section class="dashboard-content">
+       
 
             <section class="dashboard-content">
 
@@ -153,6 +104,11 @@
                     </div>
 
 
+                    @if (deleteMessage) {
+                         <p-message severity="success">{{deleteMessage}}</p-message>
+
+                    }
+                       
                     <!-- Employee Table -->
 
 
@@ -212,8 +168,16 @@
 
                                     <div class="employee-actions">
 
+                                        <!--edit button-->
                                         <p-button icon="pi pi-pencil" [text]="true" severity="secondary"
                                             ariaLabel="Edit employee" (onClick)="editEmployee(employee._id!)">
+                                        </p-button>
+
+
+                                        <!--delete button-->
+
+                                        <p-button icon="pi pi-trash" [text]="true" severity="danger"
+                                            ariaLabel="Delete employee" (onClick)="deleteEmployee(employee._id!)">
                                         </p-button>
 
 
@@ -237,7 +201,9 @@
 
 
 
-        </section>
+       
+
+        <p-confirmdialog></p-confirmdialog>
 
 
     </main>

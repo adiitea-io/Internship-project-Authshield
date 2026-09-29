@@ -6,7 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { Auth } from '../../services/auth';
-
+import { MessageModule } from 'primeng/message';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +17,8 @@ import { Auth } from '../../services/auth';
     InputTextModule,
     PasswordModule,
     ButtonModule,
-    RouterLink
+    RouterLink,
+    MessageModule
 
   ],
 
@@ -30,6 +31,7 @@ export class Register {
   emailError = '';
   password = '';
   confirmPassword = '';
+  passwordError = '';
   passwordPattern =
     '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$';
   passwordChanged() {
@@ -64,7 +66,7 @@ export class Register {
     }
 
     if (this.password !== this.confirmPassword) {
-      console.error('Passwords do not match');
+      this.passwordError='Passwords do not match';
       return;
     }
 
