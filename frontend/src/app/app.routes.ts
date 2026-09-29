@@ -35,6 +35,11 @@ export const routes: Routes = [
     {
         path: 'employees-edit/:id',
         component: AddEmployee,
+    },
+
+    {
+        path: 'users',
+        component: Dashboard,
     }
 
 

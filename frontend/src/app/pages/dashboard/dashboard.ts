@@ -8,6 +8,7 @@ import { TagModule } from 'primeng/tag';
 import { MessageModule } from 'primeng/message';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
+import { ActivatedRoute } from '@angular/router';
 
 import { Employee, EmployeeService } from '../../services/employee.service';
 
@@ -37,11 +38,16 @@ export class Dashboard {
     private employeeService: EmployeeService,
     private router: Router,
     private cdr: ChangeDetectorRef,
-    private confirmationService: ConfirmationService
-  ) {}
+    private confirmationService: ConfirmationService,
+    private route: ActivatedRoute
+  ) { }
+  
+  isUsersPage = false;
 
   ngOnInit(): void {
     console.log('Dashboard initialized');
+
+    this.isUsersPage = this.route.snapshot.routeConfig?.path === 'users';
 
     this.employeeService.getEmployees().subscribe({
       next: (data) => {

@@ -38,8 +38,8 @@
         </div>
 
 
-       
-        
+
+
 
         <!-- Sidebar bottom -->
         <div class="sidebar-footer">
@@ -71,10 +71,12 @@
 
             <div class="header-title">
 
-                <h1>Dashboard</h1>
-
+                <h1>{{ isUsersPage ? 'Users' : 'Dashboard' }}</h1>
                 <p>
-                    Welcome back, here's what's happening with your users.
+                    {{ isUsersPage
+                    ? 'View all your users here.'
+                    : "Welcome back, here's what's happening in your team."
+                    }}
                 </p>
 
             </div>
@@ -83,125 +85,133 @@
 
 
         <!-- Dashboard content will go here -->
-       
 
-            <section class="dashboard-content">
 
-                <div class="employee-card">
+        <section class="dashboard-content">
 
-                    <!-- Employee Header -->
-                    <div class="employee-header">
+            <div class="employee-card">
 
-                        <div>
-                            <h2>Employees</h2>
-                            <p>Manage and monitor your employees.</p>
-                        </div>
+                <!-- Employee Header -->
+                <div class="employee-header">
 
-                        <p-button label="Add Employee" icon="pi pi-plus" styleClass="add-employee-button"
-                            routerLink="/employees-add">
-                        </p-button>
-
+                    <div>
+                        <h2>Employees</h2>
+                        <p>Manage and monitor your employees.</p>
                     </div>
 
-
-                    @if (deleteMessage) {
-                         <p-message severity="success">{{deleteMessage}}</p-message>
-
+                    <!-- Add Employee Button -->
+                    @if (!isUsersPage) {
+                    <p-button label="Add Employee" icon="pi pi-plus" styleClass="add-employee-button"
+                        routerLink="/employees-add">
+                    </p-button>
                     }
-                       
-                    <!-- Employee Table -->
-
-
-                    <p-table [value]="employees" [paginator]="true" [rows]="7" [rowsPerPageOptions]="[7, 10, 20]"
-                        styleClass="employee-table">
-
-                        <!-- Header -->
-                        <ng-template #header>
-
-                            <tr>
-                                <th>Employee ID</th>
-                                <th>Name</th>
-                                <th>Department</th>
-                                <th>Designation</th>
-                                <th>Email</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-
-                        </ng-template>
-
-
-                        <!-- Body -->
-                        <ng-template #body let-employee>
-
-                            <tr>
-
-                                <td>
-                                    {{ employee.employeeId }}
-                                </td>
-
-                                <td>
-                                    <span class="employee-name">
-                                        {{ employee.firstName }} {{ employee.lastName }}
-                                    </span>
-                                </td>
-
-                                <td>
-                                    {{ employee.department }}
-                                </td>
-
-                                <td>
-                                    {{ employee.designation }}
-                                </td>
-
-                                <td>
-                                    {{ employee.email }}
-                                </td>
-
-                                <td>
-                                    <p-tag [value]="employee.status"
-                                        [severity]="employee.status === 'Active' ? 'success' : 'danger'">
-                                    </p-tag>
-                                </td>
-
-                                <td>
-
-                                    <div class="employee-actions">
-
-                                        <!--edit button-->
-                                        <p-button icon="pi pi-pencil" [text]="true" severity="secondary"
-                                            ariaLabel="Edit employee" (onClick)="editEmployee(employee._id!)">
-                                        </p-button>
-
-
-                                        <!--delete button-->
-
-                                        <p-button icon="pi pi-trash" [text]="true" severity="danger"
-                                            ariaLabel="Delete employee" (onClick)="deleteEmployee(employee._id!)">
-                                        </p-button>
-
-
-
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-                        </ng-template>
-
-                    </p-table>
-
-
 
                 </div>
 
-            </section>
+
+                @if (deleteMessage) {
+                <p-message severity="success">{{deleteMessage}}</p-message>
+
+                }
+
+                <!-- Employee Table -->
+
+
+                <p-table [value]="employees" [paginator]="true" [rows]="7" [rowsPerPageOptions]="[7, 10, 20]"
+                    styleClass="employee-table">
+
+                    <!-- Header -->
+                    <ng-template #header>
+
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Designation</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            @if (!isUsersPage) {<th>Actions</th>}
+
+                        </tr>
+
+                    </ng-template>
+
+
+                    <!-- Body -->
+                    <ng-template #body let-employee>
+
+                        <tr>
+
+                            <td>
+                                {{ employee.employeeId }}
+                            </td>
+
+                            <td>
+                                <span class="employee-name">
+                                    {{ employee.firstName }} {{ employee.lastName }}
+                                </span>
+                            </td>
+
+                            <td>
+                                {{ employee.department }}
+                            </td>
+
+                            <td>
+                                {{ employee.designation }}
+                            </td>
+
+                            <td>
+                                {{ employee.email }}
+                            </td>
+
+                            <td>
+                                <p-tag [value]="employee.status"
+                                    [severity]="employee.status === 'Active' ? 'success' : 'danger'">
+                                </p-tag>
+                            </td>
+
+                            @if (!isUsersPage) {
+
+                            <td>
+
+                                <div class="employee-actions">
+
+                                    <!--edit button-->
+                                    <p-button icon="pi pi-pencil" [text]="true" severity="secondary"
+                                        ariaLabel="Edit employee" (onClick)="editEmployee(employee._id!)">
+                                    </p-button>
+
+
+                                    <!--delete button-->
+
+                                    <p-button icon="pi pi-trash" [text]="true" severity="danger"
+                                        ariaLabel="Delete employee" (onClick)="deleteEmployee(employee._id!)">
+                                    </p-button>
 
 
 
-       
+
+                                </div>
+
+                            </td>
+                            }
+
+
+                        </tr>
+
+                    </ng-template>
+
+                </p-table>
+
+
+
+            </div>
+
+        </section>
+
+
+
+
 
         <p-confirmdialog></p-confirmdialog>
 
